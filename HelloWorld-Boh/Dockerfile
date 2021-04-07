@@ -19,4 +19,4 @@ RUN dotnet publish "HelloWorld-Boh.csproj" -c Release -o /app/publish
 FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
-ENTRYPOINT ["dotnet", "HelloWorld-Boh.dll"]
+ENTRYPOINT ["dotnet", "HelloWorld-Boh.dll", "--server.urls", "http://+:82"]
