@@ -20,5 +20,5 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 # Expose the port in ASP.Net Core
-ENV ASPNETCORE_URLS=http://*:8080
+ENV ASPNETCORE_URLS=http://*:8081
 ENTRYPOINT ["dotnet", "HelloWorld-Boh.dll"]
