@@ -2,7 +2,7 @@
 
 FROM mcr.microsoft.com/dotnet/core/aspnet:3.1-buster-slim AS base
 WORKDIR /app
-EXPOSE 8081
+EXPOSE 8089
 EXPOSE 443
 
 FROM mcr.microsoft.com/dotnet/core/sdk:3.1-buster AS build
@@ -20,5 +20,5 @@ FROM base AS final
 WORKDIR /app
 COPY --from=publish /app/publish .
 # Expose the port in ASP.Net Core
-ENV ASPNETCORE_URLS=http://*:8081
+ENV ASPNETCORE_URLS=http://*:8089
 ENTRYPOINT ["dotnet", "HelloWorld-Boh.dll"]
